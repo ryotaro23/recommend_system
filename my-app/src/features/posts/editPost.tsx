@@ -31,10 +31,11 @@ export const EditPost = ()=>{
 
     const onSaveChange = () =>{
         if(title&&content){
-            dispatch(updatePost( 
+            dispatch(updatePost(
                 postid,
                 title,
                 content,
+            
             ))
 
             navigate(`/posts/${postId}`)

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 import {  useParams,Link } from 'react-router-dom';
+import { TimeAgo } from './time';
 
 
 export const PostDetail = ()=>{
@@ -22,6 +23,7 @@ export const PostDetail = ()=>{
     return (
         <section>
             <h2>{matchedPost.title}</h2>
+            <TimeAgo timestamp={matchedPost.date} />
             <p>{matchedPost.content}</p>
             <p>投稿者:{user?.name}</p>
             <Link to={`/posts/edit/${postId}`}>投稿編集</Link>
