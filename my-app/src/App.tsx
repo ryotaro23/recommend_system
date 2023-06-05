@@ -1,25 +1,33 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
 } from 'react-router-dom'
 import { Navbar } from './app/Navbar'
 import { PostList } from './features/posts/postList'
 import { AddPost } from './features/posts/addPost'
+import { PostDetail } from './features/posts/postDetail'
+import { EditPost } from './features/posts/editPost'
+
 
 function App() {
   return(
     <><React.Fragment>
-      <Navbar />
-      <AddPost/>
-    </React.Fragment><Router>
+    <Navbar />
+    <AddPost />
+    </React.Fragment>
         <Routes>
           <Route
-            path='/'
+            path=''
             element={<PostList />} />
+        <Route
+            path='/posts/:postId'
+            element={<PostDetail />} />
+                    <Route path='/posts/edit/:postId'
+               element={<EditPost/>}></Route>
         </Routes>
-      </Router></>
+
+</>
     
 
   )

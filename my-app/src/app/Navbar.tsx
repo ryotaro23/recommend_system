@@ -1,14 +1,14 @@
+import { Link, Route, BrowserRouter as Router, Routes, } from "react-router-dom"
 
 export const Navbar = () => {
   return (
     <nav>
       <section>
         <h1>Recommend System</h1>
-
-        <div className="navContent">
-          <div className="navLinks"></div>
-        </div>
+        <Link to="/">トップに戻る</Link>
       </section>
+      
     </nav>
+    
   )
 }

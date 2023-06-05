@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 import {addPost} from './postsSlice'
+import { RootState } from '../../app/store';
+
+
 
 
 export const AddPost = () =>{
@@ -10,18 +13,20 @@ export const AddPost = () =>{
     const onChangeTitle = (e:React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
     const onChangeContent = (e:React.ChangeEvent<HTMLTextAreaElement>)=>setContent(e.target.value);
     const dispatch = useDispatch();
+    const [userId,setUserId]=useState('1');
+    //とりあえずuserIdを1に固定
+    const users = useSelector((state:RootState) => state.users)
+    const user = users.find(user=>user.id == userId)
+
     const onSavePost = ()=>{
-        if(title && content){
+        if(title && content&&user){
             dispatch(
-                addPost({
-                    id:nanoid(),
-                    title:title,
-                    content:content,
-                })
+                addPost(title,content,user)
             )
         }
         setTitle('');
         setContent('');
+        setUserId('1');
     }
 
     return(
