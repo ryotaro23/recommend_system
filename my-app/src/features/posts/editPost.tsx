@@ -35,7 +35,7 @@ export const EditPost = ()=>{
                 postid,
                 title,
                 content,
-            
+          
             ))
 
             navigate(`/posts/${postId}`)

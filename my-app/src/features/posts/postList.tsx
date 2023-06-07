@@ -4,6 +4,7 @@ import { Post } from "./postsSlice";
 import { RootState } from "../../app/store";
 import { Link } from "react-router-dom";
 import { TimeAgo } from "./time";
+import { ReactionButtons } from "./reaction";
 
 export const PostList = () => {
     const posts = useSelector((state : RootState) =>state.posts);
@@ -15,6 +16,7 @@ export const PostList = () => {
                 <h3>{post.title}</h3>
                 <TimeAgo timestamp={post.date} />
                 <p className="post-content">{post.content.substring(0,100)}</p>
+                <ReactionButtons post={post} />
                 <Link to={`/posts/${post.id}`} >投稿詳細</Link>
             </article>
         )
