@@ -4,6 +4,7 @@ import { nanoid } from '@reduxjs/toolkit'
 import {addPost, updatePost} from './postsSlice'
 import {  useParams,useNavigate } from 'react-router-dom';
 import { RootState } from '../../app/store';
+import { Button } from "@mui/material";
 
 
 
@@ -55,7 +56,7 @@ export const EditPost = ()=>{
             <label htmlFor="postContent">内容：</label>
             <textarea name="content" value={content} onChange={onChangeContent}></textarea>
             </form>
-            <button type="button" onClick={onSaveChange}>送信</button>
+            <Button onClick={onSaveChange} variant="contained">送信</Button>
         </section>
     )
 
